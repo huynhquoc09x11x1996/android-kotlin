@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.dialog_update_sinhvien.*
 import kotlinx.android.synthetic.main.item_view.*
 
 class MainActivity : AppCompatActivity(), initDialogAtActivity {
-
     var lists: ArrayList<SinhVien>? = null
     val TAG: String = "HuynhBaoQuoc"
     override fun onCreate(savedInstanceState: Bundle?) {

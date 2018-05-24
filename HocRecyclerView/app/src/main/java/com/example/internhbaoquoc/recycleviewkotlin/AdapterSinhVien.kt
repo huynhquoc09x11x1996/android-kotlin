@@ -88,10 +88,10 @@ class AdapterSinhVien(var contex: Context, var listData: ArrayList<SinhVien>) : 
 //https://viblo.asia/p/recyclerview-trong-android-lA7GKwbWGKZQ
 //https://viblo.asia/p/recyclerview-trong-android-phan-2-p1PvQ5W9vldr
 
-/*class Holder tạo 1 interface và setListener và thực hiện chuyển data qua cho class bự
-là AdapterSinhVien (AdapterSinhVien chỉ việc implement lại và xài các data)
-trong Viewholder class cần có 1 thể hiện interface và 1 setter cho interface này,do 1 itemView ta cần onClick cho nó nên
-ta lấy itemView.setOnLick các thứ và override lại phương thức và trong phương thức này ta gọi thể hiện của interface.phương thức
-từ AdaptyerSinhVien implement lại và override,holder trong Bindata setter cái interface kia
-
+/*
+*class Holder tạo 1 interface và setListener và thực hiện chuyển data qua cho class bự
+*là AdapterSinhVien (AdapterSinhVien chỉ việc implement lại và xài các data)
+*trong Viewholder class cần có 1 thể hiện interface và 1 setter cho interface này,do 1 itemView ta cần onClick cho nó nên
+*ta lấy itemView.setOnLick các thứ và override lại phương thức và trong phương thức này ta gọi thể hiện của interface.phương thức
+*từ AdaptyerSinhVien implement lại và override,holder trong Bindata setter cái interface kia
 */
