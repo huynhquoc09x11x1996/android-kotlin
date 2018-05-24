@@ -22,6 +22,7 @@ class InitDataSinhVien {
                 this.listener.onSucces(listss)
             }
             0 -> this.listener.onFail()
+            else -> Log.e(Utils.TAG,"Khong lam gi ca")
         }
     }
 }
