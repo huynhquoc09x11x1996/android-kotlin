@@ -8,17 +8,26 @@ import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.item_view.view.*
 
-class AdapterSinhVien(var contex: Context, var listData: ArrayList<SinhVien>) : RecyclerView.Adapter<AdapterSinhVien.MyHolder>(),recyclerViewItemClick {
+class AdapterSinhVien(var contex: Context, var listData: ArrayList<SinhVien>) : RecyclerView.Adapter<AdapterSinhVien.MyHolder>(),recyclerViewItemClick{
 
+    private var callDialog: initDialogAtActivity?=null
 
+    fun setListenerDialog(clickListener: initDialogAtActivity) {
+        callDialog = clickListener
+    }
+
+    //click long tại mỗi item sẽ show dialog bên mainactivity bằng interface initinitDialogAtActivity
     override fun onItemLongClick(position: Int, v: View, isLongCLick: Boolean) {
         Toast.makeText(contex,"Long click tại item thứ: $position",Toast.LENGTH_SHORT).show()
+        callDialog?.openDialog(position,listData.get(position))
     }
+
 
 
     fun addItem(sv: SinhVien) {
         listData.add(sv)
         notifyItemInserted(listData.size)
+        notifyDataSetChanged()
     }
 
 
@@ -38,7 +47,7 @@ class AdapterSinhVien(var contex: Context, var listData: ArrayList<SinhVien>) : 
         return listData.size
     }
 
-    //xử lý item click mỗi item
+    //gán và làm việc với mỗi view trong holder
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         (holder).bindData(listData[position])
         holder.itemView.btnItemDelete.setOnClickListener {
@@ -50,6 +59,8 @@ class AdapterSinhVien(var contex: Context, var listData: ArrayList<SinhVien>) : 
 
     //Đây là view của 1 item, trong view này sẽ có các thành phần widget con như button, textview
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) ,View.OnLongClickListener{
+
+
         private var listener: recyclerViewItemClick? = null
 
         fun setListener(clickListener: recyclerViewItemClick) {
