@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity(),MainView {
         setContentView(R.layout.activity_main)
         mainPresenter = MainPresenter()
         mainPresenter.setMainView(this)
-        btnLoad.setOnClickListener { mainPresenter.loadData() }
+        btnLoad.setOnClickListener {
+            mainPresenter.loadData(edt.text.toString().toInt())
+        }
 
     }
     override fun hienThiThanhCong(lists: ArrayList<SinhVien>) {

@@ -1,13 +1,15 @@
 package com.example.internhbaoquoc.testmvp_kotlin.presenter
 
+import android.util.Log
 import android.view.View
+import com.example.internhbaoquoc.testmvp_kotlin.Utils
 import com.example.internhbaoquoc.testmvp_kotlin.model.InitDataSinhVien
 import com.example.internhbaoquoc.testmvp_kotlin.model.ListernerSinhVien
 import com.example.internhbaoquoc.testmvp_kotlin.model.SinhVien
 import com.example.internhbaoquoc.testmvp_kotlin.view.MainView
 
 class MainPresenter : ListernerSinhVien {
-    private lateinit var data : InitDataSinhVien
+    private var data : InitDataSinhVien
     private lateinit var mainView : MainView
 
     fun setMainView(mainView: MainView)
@@ -21,9 +23,14 @@ class MainPresenter : ListernerSinhVien {
         data.setListenerModel(this)
     }
 
-    fun loadData()
+
+
+
+    fun loadData(succes_fail : Int)
     {
-        data.initListData()
+        data.initListData(succes_fail)
+        Log.e(Utils.TAG ,"Presenter : $succes_fail" )
+
     }
 
     override fun onSucces(lists: ArrayList<SinhVien>) {
