@@ -17,21 +17,16 @@ URL_GET: "/get_data.php"
 ***Response JSON format:***
 
 {
-
-    "data":[
-    
-      {
-            
+    "data":[ 
+      {      
         "ID":value
                 
         "HoTen":value
              
         "NamSinh":value
                 
-        "DiaChi":value
-                
-      },
-           
+        "DiaChi":value         
+      },    
       {
         
         "ID":value
@@ -42,8 +37,7 @@ URL_GET: "/get_data.php"
          
         "DiaChi":value
          
-      },
-            
+      },   
       {
             
         "ID":value
@@ -52,11 +46,8 @@ URL_GET: "/get_data.php"
              
         "NamSinh":value
               
-        "DiaChi":value
-               
-      }
-         
-    ]
-       
+        "DiaChi":value        
+      }    
+    ]   
 }
 
