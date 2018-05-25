@@ -17,8 +17,10 @@ URL_GET: "/get_data.php"
 ***Response JSON format:***
 
 {
-    "data":[ 
-      {      
+    "data":
+    [
+      {
+       
         "ID":value
                 
         "HoTen":value
