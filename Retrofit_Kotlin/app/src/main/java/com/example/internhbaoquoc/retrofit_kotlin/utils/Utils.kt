@@ -1,4 +1,4 @@
-package com.example.internhbaoquoc.retrofit_kotlin
+package com.example.internhbaoquoc.retrofit_kotlin.utils
 
 class Utils {
     companion object {

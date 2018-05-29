@@ -1,4 +1,4 @@
-package com.example.internhbaoquoc.retrofit_kotlin
+package com.example.internhbaoquoc.retrofit_kotlin.model
 
 import com.google.gson.annotations.SerializedName
 
