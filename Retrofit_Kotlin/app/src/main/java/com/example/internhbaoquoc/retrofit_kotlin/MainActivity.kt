@@ -18,6 +18,13 @@ import com.example.internhbaoquoc.retrofit_kotlin.api.ApiInterface
 import com.example.internhbaoquoc.retrofit_kotlin.model.JSONTree
 import com.example.internhbaoquoc.retrofit_kotlin.utils.Utils
 import com.nileshp.multiphotopicker.photopicker.activity.PickImageActivity
+import okhttp3.ResponseBody
+import android.widget.Toast
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.internal.Util
+import java.io.File
 
 
 class MainActivity : AppCompatActivity() {
@@ -61,6 +68,26 @@ class MainActivity : AppCompatActivity() {
             listImg.forEach { Log.e(Utils.TAG, it.toString()) }
             var adapter2 = AdapterItemImage(applicationContext, listImg!!)
             recycleView.adapter = adapter2
+
+            val service = ApiInterface.create()
+
+            val builder = MultipartBody.Builder()
+            builder.setType(MultipartBody.FORM)
+            val file1 = File(listImg.get(0))
+            val file2 = File(listImg.get(1))
+            builder.addFormDataPart("name", file1.getName(), RequestBody.create(MediaType.parse("uploads/*"), file1))
+            builder.addFormDataPart("name", file2.getName(), RequestBody.create(MediaType.parse("uploads/*"), file2))
+            val requestBody = builder.build()
+            val call = service.uploadMultiFile(requestBody)
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    Log.e(Utils.TAG,"success")
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Log.e(Utils.TAG,t.message)
+                }
+            })
 
         }
 
@@ -117,4 +144,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 }
