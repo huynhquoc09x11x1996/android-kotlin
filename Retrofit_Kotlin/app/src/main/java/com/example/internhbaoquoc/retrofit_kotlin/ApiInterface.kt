@@ -29,7 +29,7 @@ interface ApiInterface {
                      ,@Field("namsinhSV") ns: String
                      ,@Field("diachiSV") addr: String) : Call<String>
 
-    companion object Factory {
+    companion object {
         fun create(): ApiInterface {
             val gson = GsonBuilder().setLenient().create()
             val retrofit = Retrofit.Builder()

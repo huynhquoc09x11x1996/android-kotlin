@@ -2,9 +2,40 @@ package com.example.internhbaoquoc.retrofit_kotlin
 
 import com.google.gson.annotations.SerializedName
 
-class JSONTree{
+class JSONTree {
+    /*
+    * {
+    *   "data" :[
+    *               {
+    *                   ID: valueId
+    *                   HoTen:  valueHoten
+    *                   NamSinh: valuenamsinh
+    *                   DiaChi: valueDiaChi
+    *               },
+    *               {
+    *                   ID: valueId
+    *                   HoTen:  valueHoten
+    *                   NamSinh: valuenamsinh
+    *                   DiaChi: valueDiaChi
+    *               },
+    *               {
+    *                   ID: valueId
+    *                   HoTen:  valueHoten
+    *                   NamSinh: valuenamsinh
+    *                   DiaChi: valueDiaChi
+    *               },
+    *               {
+    *                   ID: valueId
+    *                   HoTen:  valueHoten
+    *                   NamSinh: valuenamsinh
+    *                   DiaChi: valueDiaChi
+    *               }
+    *           ]
+    * }
+    *
+    * */
     @SerializedName("data")
-    var datas : ArrayList<People> = ArrayList()
+    var datas: ArrayList<People> = ArrayList()
 
 
     class People {
@@ -18,7 +49,7 @@ class JSONTree{
         lateinit var DiaChi: String
 
         override fun toString(): String {
-            return id + " - " + HoTen+ " - "+ NamSinh + " - " + DiaChi+ "\n"
+            return id + " - " + HoTen + " - " + NamSinh + " - " + DiaChi + "\n"
         }
     }
 }
