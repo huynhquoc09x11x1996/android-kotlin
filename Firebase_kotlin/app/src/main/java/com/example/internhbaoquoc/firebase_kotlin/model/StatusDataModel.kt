@@ -9,7 +9,6 @@ class StatusDataModel{
     private lateinit var contentImage: String
     private var numLike: Long=0
     private var numCmt: Long=0
-    private lateinit var listCmt: ArrayList<PeopleComment>
     constructor(avarta: String, contentImage: String, contentText:String, hour:String, idStt: String,
                  name:String, numCmt: Long, numLike:Long)
     {
