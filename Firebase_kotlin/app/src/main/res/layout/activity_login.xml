@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ln"
     tools:context=".activity.LoginActivity">
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,6 +16,11 @@
             android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imgLogin"
+                android:background="@mipmap/ic_launcher"
+                android:layout_width="200dp"
+                android:layout_height="200dp" />
             <EditText
                 android:id="@+id/edtInputUserName"
                 android:hint="Input username "

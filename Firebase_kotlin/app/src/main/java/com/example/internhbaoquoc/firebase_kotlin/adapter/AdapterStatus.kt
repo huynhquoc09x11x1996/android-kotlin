@@ -27,11 +27,11 @@ class AdapterStatus(val ctx: Context , val listData: ArrayList<StatusDataModel>)
     class MyHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bindData(stt: StatusDataModel)
         {
-            itemView.txtName.text=stt.name
-            itemView.txtHour.text=stt.hour
-            itemView.txtContentText.text=stt.contentText
-            itemView.txtNumLike.text=stt.numLike.toString()
-            itemView.txtNumCmt.text=stt.numCmt.toString()
+            itemView.txtName.text=stt.getName()
+            itemView.txtHour.text=stt.getHour()
+            itemView.txtContentText.text=stt.getContentText()
+            itemView.txtNumLike.text=stt.getNumLike().toString()
+            itemView.txtNumCmt.text=stt.getNumCmt().toString()
         }
     }
 }
