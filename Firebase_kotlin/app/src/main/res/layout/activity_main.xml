@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/color1"
+    android:id="@+id/lnmain"
     tools:context=".activity.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <FrameLayout
+        android:id="@+id/frameRecyclerView"
         android:layout_weight="0.9"
-        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
 
-    </android.support.v7.widget.RecyclerView>
+        <ProgressBar
+            android:id="@+id/pbWaitLoadFirebase"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
     <android.support.design.widget.BottomNavigationView
         android:layout_weight="0.1"
         android:id="@+id/navigation"

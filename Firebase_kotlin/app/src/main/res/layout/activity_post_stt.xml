@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:id="@+id/lnPost"
+    tools:context=".activity.PostSttActivity">
+
+        <FrameLayout
+            android:layout_weight="0.9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edtInputContentStt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:hint="Hôm nay thế nào" />
+            <ImageView
+                android:layout_gravity="bottom|center_horizontal"
+                android:id="@+id/imgClone"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+        </FrameLayout>
+       <LinearLayout
+           android:layout_weight="0.1"
+           android:padding="10dp"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <ImageView
+                android:layout_marginLeft="10dp"
+               android:id="@+id/imgEmoji"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/ic_emoji32" />
+           <ImageView
+               android:layout_marginLeft="10dp"
+               android:id="@+id/imgGrallery"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/ic_grallery32" />
+       </LinearLayout>
+</LinearLayout>

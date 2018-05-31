@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <TextView
+           android:id="@+id/txtPeopleCmt"
+           android:layout_marginLeft="5dp"
+           android:textStyle="bold"
+           android:textSize="18sp"
+           android:text="quoc:"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtHourCmt"
+            android:text="3 giờ cách đây"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+   </LinearLayout>
+    <TextView
+        android:id="@+id/txtPeopleContentCmt"
+        android:layout_marginLeft="5dp"
+        android:textSize="18sp"
+        android:text="hahahahaha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

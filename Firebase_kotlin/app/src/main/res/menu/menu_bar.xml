@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:appcompat="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/action_post_stt"
+        android:title="Đăng status"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_signout"
+        android:title="Đăng xuất"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_search_stt"
+        android:title="Search"
+        android:icon="@drawable/ic_action_search32"
+        app:showAsAction="always"/>
+</menu>

@@ -2,32 +2,43 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    app:cardCornerRadius="20dp"
-    android:layout_marginTop="5dp"
+    android:layout_height="match_parent"
     android:layout_marginBottom="5dp"
-    android:layout_height="match_parent">
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
-        android:background="#FFFF"
-        android:orientation="vertical"
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFF"
+        android:orientation="vertical"
+        android:weightSum="9">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgAvarta"
-                android:layout_gravity="center"
+            <FrameLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
-                app:civ_border_width="1dp" />
+                android:layout_weight="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgAvarta"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_width="1dp" />
+                <ProgressBar
+                android:id="@+id/progressbarAVT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -44,6 +55,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+
                     android:id="@+id/txtHour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,46 +78,65 @@
             android:id="@+id/txtContentText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="#FFF"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
             android:text="My full name is Huynh Bao quoc" />
-        <ImageView
-            android:id="@+id/txtContentImage"
-            android:padding="20dp"
-            android:src="@drawable/quocquoc"
-            android:layout_gravity="center"
+
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/imgContentImage"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:src="@drawable/quocquoc" />
+            <ProgressBar
+            android:id="@+id/progressbarImageContent"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:weightSum="1">
+
             <TextView
                 android:id="@+id/txtNumLike"
-                android:gravity="center"
-                android:layout_weight="0.5"
-                android:text="300 lượt thích"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="300 lượt thích" />
+
             <TextView
                 android:id="@+id/txtNumCmt"
-                android:gravity="center"
-                android:layout_weight="0.5"
-                android:text="300 bình luận"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="300 bình luận" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:weightSum="1">
 
             <ImageButton
                 android:id="@+id/btnLike"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
                 android:background="#FFF"
@@ -114,7 +145,7 @@
             <ImageButton
                 android:id="@+id/btnCmt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.5"
                 android:background="#FFF"

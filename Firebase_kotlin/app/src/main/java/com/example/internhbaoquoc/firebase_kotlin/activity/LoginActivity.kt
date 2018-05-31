@@ -24,8 +24,6 @@ import java.io.ByteArrayOutputStream
 import kotlin.collections.HashMap
 
 class LoginActivity : AppCompatActivity() {
-    private val REQ = 999
-    private var i: Int = 0
     private lateinit var sharef: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private lateinit var mIntent: Intent
@@ -38,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val db = FirebaseFirestore.getInstance()
         //share preference va intent
         mIntent = Intent(this, MainActivity::class.java)
         sharef = getSharedPreferences(MyConstants.SHAREREF_NAME, Context.MODE_PRIVATE)
@@ -48,7 +45,8 @@ class LoginActivity : AppCompatActivity() {
         if (sharef.all.size > 0) {
             progressbarLogin.visibility = View.VISIBLE
             lnLogin.visibility = View.INVISIBLE
-            db.collection("Users")
+            /*
+             db.collection("Users")
                     .document(sharef.getString(MyConstants.INPUT_USER_KEY, null))
                     .get()
                     .addOnSuccessListener { snap ->
@@ -59,26 +57,11 @@ class LoginActivity : AppCompatActivity() {
                     .addOnFailureListener { exception ->
                         Log.e(MyConstants.TAG, "Load users that bai do ${exception.printStackTrace()}")
                     }
+ */
+            startActivity(mIntent)
+            finish()
 
         }
-
-        /*
-        if (sharef.all.size > 0) {
-
-            progressbarLogin.visibility = View.VISIBLE
-            lnLogin.visibility = View.INVISIBLE
-            val timer = Timer()
-            timer.schedule(timerTask {
-                if (i == 5) {
-                    timer.cancel()
-                    startActivity(mIntent)
-                    finish()
-                }
-                i++
-            }, 0, 1000)
-
-        }
-        */
     }
 
 
@@ -92,13 +75,13 @@ class LoginActivity : AppCompatActivity() {
         imgLogin.setOnClickListener {
             val gallery = Intent(Intent.ACTION_GET_CONTENT)
             gallery.type = "image/*"
-            startActivityForResult(gallery, REQ)
+            startActivityForResult(gallery, MyConstants.REQ)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQ && resultCode == Activity.RESULT_OK) {
+        if (requestCode == MyConstants.REQ && resultCode == Activity.RESULT_OK) {
             //display hinh anh den imageview,upload đến firebase và lấy ảnh của imageview
             val imageUri = data!!.getData()
             imgLogin.setDrawingCacheEnabled(true);
@@ -135,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
                 people.put("idPeople", edtInputUserName.text.toString())
                 people.put("username", edtInputUserName.text.toString())
                 people.put("linkImg", uri.toString())
-                Upload.beginUpload("Users", edtInputUserName.text.toString(), people, ln)
+                Upload.beginUpload("Users", edtInputUserName.text.toString(), people)
             }
         }.addOnFailureListener { exception ->
             Log.e(MyConstants.TAG, "Uploaded lên fireStogare thất bại! ${exception.printStackTrace()}")
