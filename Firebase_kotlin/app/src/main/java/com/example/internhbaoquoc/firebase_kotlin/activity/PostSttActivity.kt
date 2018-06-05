@@ -47,7 +47,6 @@ class PostSttActivity : AppCompatActivity() {
         when (item!!.itemId) {
             R.id.action_submit_post -> {
                 startPost()
-                finish()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -68,13 +67,16 @@ class PostSttActivity : AppCompatActivity() {
 
         val dialog = ProgressDialog(this)
         dialog.setTitle("Bắt đầu đăng....")
+        dialog.setCanceledOnTouchOutside(false)
         dialog.show()
         //gửi request,uploadTask success và lấy urldownload thành công thì tiến hành upload object
         uploadTask.addOnSuccessListener {
             storageRef.downloadUrl.addOnSuccessListener { uri ->
-                val obj = StatusDataModel(intent!!.getStringExtra("linkAVT"), uri.toString(), edtInputContentStt.text.toString(), System.currentTimeMillis().toString(), "stt_" + System.currentTimeMillis().toString(), username, 0, 0)
+                val timeStr=System.currentTimeMillis().toString()
+                val obj = StatusDataModel(intent!!.getStringExtra("linkAVT"), uri.toString(), edtInputContentStt.text.toString(), timeStr, "stt_" + timeStr, username, 0, 0)
                 Snackbar.make(lnPost,"Đăng status xong",5).show()
-                Upload.beginUpload("StatusPuclish", "stt_" + System.currentTimeMillis().toString(), obj)
+                Upload.beginUpload("StatusPuclish", "stt_" +timeStr , obj)
+                finish()
             }
         }.addOnFailureListener { exception ->
             Log.e(MyConstants.TAG, "Uploaded lên fireStogare thất bại! ${exception.printStackTrace()}")

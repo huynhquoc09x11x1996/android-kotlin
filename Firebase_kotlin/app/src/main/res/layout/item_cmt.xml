@@ -11,7 +11,7 @@
            android:id="@+id/txtPeopleCmt"
            android:layout_marginLeft="5dp"
            android:textStyle="bold"
-           android:textSize="18sp"
+           android:textSize="20sp"
            android:text="quoc:"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content" />

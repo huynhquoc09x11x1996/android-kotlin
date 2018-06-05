@@ -7,6 +7,7 @@ class MyConstants {
         val SHAREREF_NAME: String = "MY_SHAReREF"
         val REQ: Int = 999
         val STATUS_PUBLISH:String ="StatusPuclish"
+        val LIST_COMMENT: String ="ListComment"
 
     }
 }

@@ -2,19 +2,14 @@ package com.example.internhbaoquoc.firebase_kotlin.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
+
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.SimpleTarget
+
 import com.example.internhbaoquoc.firebase_kotlin.R
 import com.example.internhbaoquoc.firebase_kotlin.activity.CommentActivity
 import com.example.internhbaoquoc.firebase_kotlin.model.StatusDataModel
@@ -71,6 +66,7 @@ class AdapterStatus(val ctx: Context, val listData: ArrayList<StatusDataModel>) 
             val it:Intent = Intent(ctx,CommentActivity::class.java)
             Log.e(MyConstants.TAG,"idSTT send qua commentAct ${listData.get(position).getId()}")
             it.putExtra("id",listData.get(position).getId())
+            it.setFlags(FLAG_ACTIVITY_NEW_TASK)
             ctx.startActivity(it)
         }
     }

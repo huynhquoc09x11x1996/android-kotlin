@@ -155,12 +155,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
+                        android:id="@+id/edtInputComment"
                         android:layout_weight="8"
                         android:hint="input text cua ban"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
                     <ImageButton
-                        android:src="@drawable/ic_grallery32"
+                        android:id="@+id/btnSendComment"
+                        android:background="#FFF"
+                        android:src="@drawable/ic_send32"
                         android:layout_weight="2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />

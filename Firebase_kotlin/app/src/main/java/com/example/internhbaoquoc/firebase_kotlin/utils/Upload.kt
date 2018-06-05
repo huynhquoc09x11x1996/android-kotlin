@@ -11,6 +11,9 @@ import com.example.internhbaoquoc.firebase_kotlin.adapter.AdapterStatus
 import com.example.internhbaoquoc.firebase_kotlin.model.StatusDataModel
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
+import android.provider.SyncStateContract.Helpers.update
+import com.example.internhbaoquoc.firebase_kotlin.utils.MyConstants.Companion.TAG
+import com.google.firebase.firestore.DocumentReference
 
 
 object Upload {
@@ -38,16 +41,12 @@ object Upload {
 
     fun increaseLike(collection: String, doc_i: String, obj: StatusDataModel) {
         val db = FirebaseFirestore.getInstance()
-        db.collection(collection)
-                .document(doc_i)
-                .set(obj)
-                .addOnSuccessListener {
-                    Log.e(MyConstants.TAG, "upload success")
 
-                }
-                .addOnFailureListener {
-                    Log.e(MyConstants.TAG, "upload fail")
-                }
+        val docRef = db.collection(collection).document(doc_i)
+        docRef
+                .update("numLike", obj.getNumLike()+1)
+                .addOnSuccessListener{Log.e(TAG, "DocumentSnapshot successfully updated!") }
+                .addOnFailureListener{Log.e(TAG, "Error updating document")}
     }
 
     fun deleteStatus(collection: String, doc_i: String) {
