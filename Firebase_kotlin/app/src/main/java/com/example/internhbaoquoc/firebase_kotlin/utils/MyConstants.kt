@@ -1,4 +1,4 @@
-package com.example.internhbaoquoc.firebase_kotlin
+package com.example.internhbaoquoc.firebase_kotlin.utils
 
 class MyConstants {
     companion object {
@@ -7,3 +7,4 @@ class MyConstants {
         val SHAREREF_NAME: String= "MY_SHAReREF"
     }
 }
+
